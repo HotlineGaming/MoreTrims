@@ -1,0 +1,7 @@
+{
+  "asset_id": "moretrims:hero",
+  "description": {
+    "translate": "trim_pattern.moretrims.hero"
+  },
+  "template_item": "moretrims:hero_armor_trim_smithing_template"
+}

@@ -1,0 +1,7 @@
+{
+  "asset_id": "moretrims:war",
+  "description": {
+    "translate": "trim_pattern.moretrims.war"
+  },
+  "template_item": "moretrims:war_armor_trim_smithing_template"
+}
