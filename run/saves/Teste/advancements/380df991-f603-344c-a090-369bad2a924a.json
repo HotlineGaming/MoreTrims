@@ -293,12 +293,6 @@
     },
     "done": true
   },
-  "minecraft:recipes/redstone/sticky_piston": {
-    "criteria": {
-      "has_slime_ball": "2024-02-10 14:01:37 -0300"
-    },
-    "done": true
-  },
   "minecraft:adventure/root": {
     "criteria": {
       "killed_something": "2024-02-10 14:01:35 -0300"
@@ -311,15 +305,21 @@
     },
     "done": false
   },
-  "minecraft:recipes/redstone/slime_block": {
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "minecraft:slime": "2024-02-10 14:01:35 -0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/sticky_piston": {
     "criteria": {
       "has_slime_ball": "2024-02-10 14:01:37 -0300"
     },
     "done": true
   },
-  "minecraft:adventure/kill_a_mob": {
+  "minecraft:recipes/redstone/slime_block": {
     "criteria": {
-      "minecraft:slime": "2024-02-10 14:01:35 -0300"
+      "has_slime_ball": "2024-02-10 14:01:37 -0300"
     },
     "done": true
   },
