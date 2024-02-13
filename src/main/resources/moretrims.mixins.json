@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "net.guilarducci.eat.moretrims.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "MoreTrims.refmap.json",
+  "refmap": "moretrims.refmap.json",
   "mixins": [
     "PiglinBruteAiMixin",
     "PiglinBruteMixin"
