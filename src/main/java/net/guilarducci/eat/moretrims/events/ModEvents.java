@@ -4,7 +4,6 @@ import com.mojang.datafixers.DataFixer;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.guilarducci.eat.moretrims.items.ModItems;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.PlayerAdvancements;

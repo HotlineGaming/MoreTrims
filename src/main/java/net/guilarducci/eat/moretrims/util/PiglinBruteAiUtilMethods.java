@@ -4,26 +4,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
-import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -77,22 +68,6 @@ public class PiglinBruteAiUtilMethods extends PiglinAi {
             throwItemsTowardRandomPos(pPilgin, pStacks);
         }
 
-    }
-
-    private static Optional<? extends LivingEntity> getTargetIfWithinRange(AbstractPiglin pPiglinBrute, MemoryModuleType<? extends LivingEntity> pMemoryType) {
-        return pPiglinBrute.getBrain().getMemory(pMemoryType).filter((p_35108_) -> {
-            return p_35108_.closerThan(pPiglinBrute, 12.0D);
-        });
-    }
-
-    public static Optional<? extends LivingEntity> findNearestValidAttackTarget(AbstractPiglin p_35087_) {
-        Optional<LivingEntity> optional = BehaviorUtils.getLivingEntityFromUUIDMemory(p_35087_, MemoryModuleType.ANGRY_AT);
-        if (optional.isPresent() && Sensor.isEntityAttackableIgnoringLineOfSight(p_35087_, optional.get())) {
-            return optional;
-        } else {
-            Optional<? extends LivingEntity> optional1 = getTargetIfWithinRange(p_35087_, MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER);
-            return optional1.isPresent() ? optional1 : p_35087_.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_NEMESIS);
-        }
     }
 
     public static boolean isNotHoldingLovedItemInOffHand(PiglinBrute p_35029_) {
@@ -200,10 +175,6 @@ public class PiglinBruteAiUtilMethods extends PiglinAi {
 
     public static boolean canAdmire(PiglinBrute pPiglin, ItemStack pStack) {
         return !isAdmiringDisabled(pPiglin) && !isAdmiringItem(pPiglin) && pPiglin.isAdult() && isLovedItem(pStack);
-    }
-
-    public static boolean isPlayerHoldingLovedItem(LivingEntity p_34884_) {
-        return p_34884_.getType() == EntityType.PLAYER && p_34884_.isHolding(PiglinAi::isLovedItem);
     }
 
     public static InteractionResult mobInteract(PiglinBrute pPiglin, Player pPlayer, InteractionHand pHand) {

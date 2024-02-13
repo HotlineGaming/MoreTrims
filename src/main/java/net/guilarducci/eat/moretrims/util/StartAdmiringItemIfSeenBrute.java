@@ -1,15 +1,10 @@
 package net.guilarducci.eat.moretrims.util;
 
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.behavior.BehaviorControl;
 import net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
-import net.minecraft.world.entity.monster.piglin.PiglinBrute;
-import net.minecraft.world.entity.monster.piglin.StartAdmiringItemIfSeen;
-import net.minecraft.world.level.Level;
 
 public class StartAdmiringItemIfSeenBrute {
     public static BehaviorControl<LivingEntity> create(int pAdmireDuration) {
