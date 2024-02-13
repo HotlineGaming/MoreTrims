@@ -1,5 +1,6 @@
 package net.guilarducci.eat.moretrims.util;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -7,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -14,9 +16,11 @@ import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
+import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -95,13 +99,22 @@ public class PiglinBruteAiUtilMethods extends PiglinAi {
         return p_35029_.getOffhandItem().isEmpty() || !isLovedItem(p_35029_.getOffhandItem());
     }
 
+
     private static List<ItemStack> getBarterResponseItems(PiglinBrute pPiglin) {
-        LootTable loottable = pPiglin.level().getServer().getLootData().getLootTable(BuiltInLootTables.PIGLIN_BARTERING);
+        ResourceLocation PIGLIN_BRUTE_BOUNTY = new ResourceLocation("moretrims:gameplay/piglin_brute_bounty");
+        LootTable loottable = pPiglin.level().getServer().getLootData().getLootTable(PIGLIN_BRUTE_BOUNTY);
         List<ItemStack> list = loottable.getRandomItems((new LootParams.Builder((ServerLevel) pPiglin.level())).withParameter(LootContextParams.THIS_ENTITY, pPiglin).create(LootContextParamSets.PIGLIN_BARTER));
         return list;
     }
 
-    private static boolean isHoldingItemInOffHand(PiglinBrute pPiglin) {
+    private static List<ItemStack> getBarterResponseItemsIvor(PiglinBrute pPiglin) {
+        ResourceLocation PIGLIN_BRUTE_BOUNTY = new ResourceLocation("moretrims:gameplay/ivor_bounty");
+        LootTable loottable = pPiglin.level().getServer().getLootData().getLootTable(PIGLIN_BRUTE_BOUNTY);
+        List<ItemStack> list = loottable.getRandomItems((new LootParams.Builder((ServerLevel) pPiglin.level())).withParameter(LootContextParams.THIS_ENTITY, pPiglin).create(LootContextParamSets.PIGLIN_BARTER));
+        return list;
+    }
+
+    public static boolean isHoldingItemInOffHand(PiglinBrute pPiglin) {
         return !pPiglin.getOffhandItem().isEmpty();
     }
 
@@ -169,7 +182,9 @@ public class PiglinBruteAiUtilMethods extends PiglinAi {
         pPiglin.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
         if (pPiglin.isAdult()) {
             boolean flag = isLovedItem(itemstack);
-            if (pShouldBarter && flag) {
+            if (pShouldBarter && flag && pPiglin.getName().getString().equals("Ivor")) {
+                throwItems(pPiglin, getBarterResponseItemsIvor(pPiglin));
+            } else if (pShouldBarter && flag) {
                 throwItems(pPiglin, getBarterResponseItems(pPiglin));
             }
         }

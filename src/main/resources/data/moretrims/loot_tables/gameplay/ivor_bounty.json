@@ -1,0 +1,15 @@
+{
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:lapis_lazuli"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "moretrims:gameplay/ivor_bounty"
+}

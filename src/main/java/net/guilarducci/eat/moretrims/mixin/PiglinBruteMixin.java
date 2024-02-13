@@ -46,7 +46,7 @@ public abstract class PiglinBruteMixin extends AbstractPiglin {
     static{
         MEMORY_TYPES = ImmutableList.<MemoryModuleType<?>>builder()
                 .addAll(MEMORY_TYPES)
-                .addAll(ImmutableList.of(MemoryModuleType.ADMIRING_ITEM, MemoryModuleType.TIME_TRYING_TO_REACH_ADMIRE_ITEM, MemoryModuleType.ADMIRING_DISABLED, MemoryModuleType.DISABLE_WALK_TO_ADMIRE_ITEM, MemoryModuleType.NEAREST_PLAYER_HOLDING_WANTED_ITEM, MemoryModuleType.INTERACTION_TARGET, MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM))
+                .addAll(ImmutableList.of(MemoryModuleType.ADMIRING_ITEM, MemoryModuleType.TIME_TRYING_TO_REACH_ADMIRE_ITEM, MemoryModuleType.ADMIRING_DISABLED, MemoryModuleType.DISABLE_WALK_TO_ADMIRE_ITEM, MemoryModuleType.NEAREST_PLAYER_HOLDING_WANTED_ITEM, MemoryModuleType.INTERACTION_TARGET, MemoryModuleType.NEAREST_VISIBLE_WANTED_ITEM, MemoryModuleType.ITEM_PICKUP_COOLDOWN_TICKS))
                 .build();
     }
 
