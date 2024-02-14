@@ -303,6 +303,7 @@
     "criteria": {
       "minecraft:piglin_brute": "2024-02-12 12:55:00 -0300",
       "minecraft:slime": "2024-02-10 14:01:35 -0300",
+      "minecraft:zombified_piglin": "2024-02-14 16:13:31 -0300",
       "minecraft:piglin": "2024-02-11 13:08:52 -0300"
     },
     "done": false
@@ -1001,6 +1002,24 @@
   "minecraft:recipes/decorations/barrel": {
     "criteria": {
       "has_wood_slab": "2024-02-13 15:58:18 -0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/voluntary_exile": {
+    "criteria": {
+      "voluntary_exile": "2024-02-13 19:12:21 -0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/hero_of_the_village": {
+    "criteria": {
+      "hero_of_the_village": "2024-02-13 19:12:28 -0300"
+    },
+    "done": true
+  },
+  "moretrims:distract_piglin_brute": {
+    "criteria": {
+      "distract_piglin_brute_directly": "2024-02-14 16:16:59 -0300"
     },
     "done": true
   },

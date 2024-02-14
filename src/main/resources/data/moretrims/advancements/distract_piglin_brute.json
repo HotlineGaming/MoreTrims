@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "title": "Bounty Hunter",
+    "description": "Distract a piglin brute with a wither skeleton skull",
+    "frame": "challenge",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:nether/distract_piglin",
+  "criteria": {
+    "distract_piglin_brute": {
+      "trigger": "minecraft:thrown_item_picked_up_by_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:piglin_brute"
+        },
+        "item": {
+          "items": [
+            "minecraft:wither_skeleton_skull"
+          ]
+        }
+      }
+    },
+    "distract_piglin_brute_directly": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:wither_skeleton_skull"
+          ]
+        },
+        "entity": {
+          "type": "minecraft:piglin_brute"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "distract_piglin_brute",
+      "distract_piglin_brute_directly"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  },
+  "sends_telemetry_event": true
+}
