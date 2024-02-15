@@ -9,6 +9,8 @@
     "PiglinBruteMixin"
   ],
   "client": [
+    "client.SpriteResourceLoaderMixin",
+    "client.SpriteResourceLoaderMixin$PalettedPermutationsAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
